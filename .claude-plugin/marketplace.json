@@ -1,0 +1,17 @@
+{
+  "name": "alstaty",
+  "description": "Ahmad Alstaty's Claude Code plugins",
+  "owner": {
+    "name": "Ahmad Alstaty",
+    "email": "ahmad.alstaty@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "guardrails",
+      "source": ".",
+      "description": "Blocks destructive shell commands and secrets edits with PreToolUse hooks, reports what Claude Code loads at session start, and lints CLAUDE.md files.",
+      "category": "safety",
+      "tags": ["safety", "hooks", "guardrails", "claude-md", "lint"]
+    }
+  ]
+}

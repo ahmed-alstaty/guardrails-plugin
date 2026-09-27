@@ -1,0 +1,14 @@
+{
+  "name": "guardrails",
+  "displayName": "Guardrails",
+  "version": "1.0.0",
+  "description": "Blocks destructive shell commands and secrets edits with PreToolUse hooks, reports what Claude Code loads at session start, and lints CLAUDE.md files against the documented rules.",
+  "author": {
+    "name": "Ahmad Alstaty",
+    "email": "ahmad.alstaty@gmail.com"
+  },
+  "homepage": "https://github.com/alstaty/guardrails-plugin",
+  "repository": "https://github.com/alstaty/guardrails-plugin",
+  "license": "MIT",
+  "keywords": ["safety", "hooks", "guardrails", "claude-md", "lint", "secrets"]
+}

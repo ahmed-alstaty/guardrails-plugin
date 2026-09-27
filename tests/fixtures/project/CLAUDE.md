@@ -1,0 +1,210 @@
+# Project instructions
+
+IMPORTANT: read this.
+
+## Layout
+
+- src/api/ - API handlers
+- src/db/ - database layer
+- src/ui/ - React components
+- package.json - scripts
+
+## Rules
+
+- Always run `npm test` before committing
+- Never commit directly to main
+- Use 2-space indentation
+- IMPORTANT: never use var
+
+## How to release
+
+1. Bump the version in package.json
+2. Run `npm run build`
+3. Tag the commit
+4. Push the tag
+
+See @docs/missing-guide.md for details and @README.md too.
+
+- filler rule number 27, keep the code tidy
+- filler rule number 28, keep the code tidy
+- filler rule number 29, keep the code tidy
+- filler rule number 30, keep the code tidy
+- filler rule number 31, keep the code tidy
+- filler rule number 32, keep the code tidy
+- filler rule number 33, keep the code tidy
+- filler rule number 34, keep the code tidy
+- filler rule number 35, keep the code tidy
+- filler rule number 36, keep the code tidy
+- filler rule number 37, keep the code tidy
+- filler rule number 38, keep the code tidy
+- filler rule number 39, keep the code tidy
+- filler rule number 40, keep the code tidy
+- filler rule number 41, keep the code tidy
+- filler rule number 42, keep the code tidy
+- filler rule number 43, keep the code tidy
+- filler rule number 44, keep the code tidy
+- filler rule number 45, keep the code tidy
+- filler rule number 46, keep the code tidy
+- filler rule number 47, keep the code tidy
+- filler rule number 48, keep the code tidy
+- filler rule number 49, keep the code tidy
+- filler rule number 50, keep the code tidy
+- filler rule number 51, keep the code tidy
+- filler rule number 52, keep the code tidy
+- filler rule number 53, keep the code tidy
+- filler rule number 54, keep the code tidy
+- filler rule number 55, keep the code tidy
+- filler rule number 56, keep the code tidy
+- filler rule number 57, keep the code tidy
+- filler rule number 58, keep the code tidy
+- filler rule number 59, keep the code tidy
+- filler rule number 60, keep the code tidy
+- filler rule number 61, keep the code tidy
+- filler rule number 62, keep the code tidy
+- filler rule number 63, keep the code tidy
+- filler rule number 64, keep the code tidy
+- filler rule number 65, keep the code tidy
+- filler rule number 66, keep the code tidy
+- filler rule number 67, keep the code tidy
+- filler rule number 68, keep the code tidy
+- filler rule number 69, keep the code tidy
+- filler rule number 70, keep the code tidy
+- filler rule number 71, keep the code tidy
+- filler rule number 72, keep the code tidy
+- filler rule number 73, keep the code tidy
+- filler rule number 74, keep the code tidy
+- filler rule number 75, keep the code tidy
+- filler rule number 76, keep the code tidy
+- filler rule number 77, keep the code tidy
+- filler rule number 78, keep the code tidy
+- filler rule number 79, keep the code tidy
+- filler rule number 80, keep the code tidy
+- filler rule number 81, keep the code tidy
+- filler rule number 82, keep the code tidy
+- filler rule number 83, keep the code tidy
+- filler rule number 84, keep the code tidy
+- filler rule number 85, keep the code tidy
+- filler rule number 86, keep the code tidy
+- filler rule number 87, keep the code tidy
+- filler rule number 88, keep the code tidy
+- filler rule number 89, keep the code tidy
+- filler rule number 90, keep the code tidy
+- filler rule number 91, keep the code tidy
+- filler rule number 92, keep the code tidy
+- filler rule number 93, keep the code tidy
+- filler rule number 94, keep the code tidy
+- filler rule number 95, keep the code tidy
+- filler rule number 96, keep the code tidy
+- filler rule number 97, keep the code tidy
+- filler rule number 98, keep the code tidy
+- filler rule number 99, keep the code tidy
+- filler rule number 100, keep the code tidy
+- filler rule number 101, keep the code tidy
+- filler rule number 102, keep the code tidy
+- filler rule number 103, keep the code tidy
+- filler rule number 104, keep the code tidy
+- filler rule number 105, keep the code tidy
+- filler rule number 106, keep the code tidy
+- filler rule number 107, keep the code tidy
+- filler rule number 108, keep the code tidy
+- filler rule number 109, keep the code tidy
+- filler rule number 110, keep the code tidy
+- filler rule number 111, keep the code tidy
+- filler rule number 112, keep the code tidy
+- filler rule number 113, keep the code tidy
+- filler rule number 114, keep the code tidy
+- filler rule number 115, keep the code tidy
+- filler rule number 116, keep the code tidy
+- filler rule number 117, keep the code tidy
+- filler rule number 118, keep the code tidy
+- filler rule number 119, keep the code tidy
+- filler rule number 120, keep the code tidy
+- filler rule number 121, keep the code tidy
+- filler rule number 122, keep the code tidy
+- filler rule number 123, keep the code tidy
+- filler rule number 124, keep the code tidy
+- filler rule number 125, keep the code tidy
+- filler rule number 126, keep the code tidy
+- filler rule number 127, keep the code tidy
+- filler rule number 128, keep the code tidy
+- filler rule number 129, keep the code tidy
+- filler rule number 130, keep the code tidy
+- filler rule number 131, keep the code tidy
+- filler rule number 132, keep the code tidy
+- filler rule number 133, keep the code tidy
+- filler rule number 134, keep the code tidy
+- filler rule number 135, keep the code tidy
+- filler rule number 136, keep the code tidy
+- filler rule number 137, keep the code tidy
+- filler rule number 138, keep the code tidy
+- filler rule number 139, keep the code tidy
+- filler rule number 140, keep the code tidy
+- filler rule number 141, keep the code tidy
+- filler rule number 142, keep the code tidy
+- filler rule number 143, keep the code tidy
+- filler rule number 144, keep the code tidy
+- filler rule number 145, keep the code tidy
+- filler rule number 146, keep the code tidy
+- filler rule number 147, keep the code tidy
+- filler rule number 148, keep the code tidy
+- filler rule number 149, keep the code tidy
+- filler rule number 150, keep the code tidy
+- filler rule number 151, keep the code tidy
+- filler rule number 152, keep the code tidy
+- filler rule number 153, keep the code tidy
+- filler rule number 154, keep the code tidy
+- filler rule number 155, keep the code tidy
+- filler rule number 156, keep the code tidy
+- filler rule number 157, keep the code tidy
+- filler rule number 158, keep the code tidy
+- filler rule number 159, keep the code tidy
+- filler rule number 160, keep the code tidy
+- filler rule number 161, keep the code tidy
+- filler rule number 162, keep the code tidy
+- filler rule number 163, keep the code tidy
+- filler rule number 164, keep the code tidy
+- filler rule number 165, keep the code tidy
+- filler rule number 166, keep the code tidy
+- filler rule number 167, keep the code tidy
+- filler rule number 168, keep the code tidy
+- filler rule number 169, keep the code tidy
+- filler rule number 170, keep the code tidy
+- filler rule number 171, keep the code tidy
+- filler rule number 172, keep the code tidy
+- filler rule number 173, keep the code tidy
+- filler rule number 174, keep the code tidy
+- filler rule number 175, keep the code tidy
+- filler rule number 176, keep the code tidy
+- filler rule number 177, keep the code tidy
+- filler rule number 178, keep the code tidy
+- filler rule number 179, keep the code tidy
+- filler rule number 180, keep the code tidy
+- filler rule number 181, keep the code tidy
+- filler rule number 182, keep the code tidy
+- filler rule number 183, keep the code tidy
+- filler rule number 184, keep the code tidy
+- filler rule number 185, keep the code tidy
+- filler rule number 186, keep the code tidy
+- filler rule number 187, keep the code tidy
+- filler rule number 188, keep the code tidy
+- filler rule number 189, keep the code tidy
+- filler rule number 190, keep the code tidy
+- filler rule number 191, keep the code tidy
+- filler rule number 192, keep the code tidy
+- filler rule number 193, keep the code tidy
+- filler rule number 194, keep the code tidy
+- filler rule number 195, keep the code tidy
+- filler rule number 196, keep the code tidy
+- filler rule number 197, keep the code tidy
+- filler rule number 198, keep the code tidy
+- filler rule number 199, keep the code tidy
+- filler rule number 200, keep the code tidy
+- filler rule number 201, keep the code tidy
+- filler rule number 202, keep the code tidy
+- filler rule number 203, keep the code tidy
+- filler rule number 204, keep the code tidy
+- filler rule number 205, keep the code tidy
+- filler rule number 206, keep the code tidy
+- filler rule number 207, keep the code tidy
+- filler rule number 208, keep the code tidy
+- filler rule number 209, keep the code tidy

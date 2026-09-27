@@ -1,0 +1,42 @@
+{
+  "description": "Guardrails: block destructive commands and secrets edits; report loaded instruction files at session start.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/pretooluse.py\"",
+            "timeout": 10,
+            "statusMessage": "Guardrails: checking command"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/pretooluse.py\"",
+            "timeout": 10,
+            "statusMessage": "Guardrails: checking file path"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/session_report.py\"",
+            "timeout": 20,
+            "statusMessage": "Guardrails: building session report"
+          }
+        ]
+      }
+    ]
+  }
+}
