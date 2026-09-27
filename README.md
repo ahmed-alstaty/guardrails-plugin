@@ -13,14 +13,14 @@ Three features, all enforced with plain `python3` scripts and no dependencies:
 The repository is its own marketplace (`alstaty`), so it takes two commands in a Claude Code session:
 
 ```text
-/plugin marketplace add alstaty/guardrails-plugin
+/plugin marketplace add ahmed-alstaty/guardrails-plugin
 /plugin install guardrails@alstaty
 ```
 
 Or from your shell:
 
 ```bash
-claude plugin marketplace add alstaty/guardrails-plugin
+claude plugin marketplace add ahmed-alstaty/guardrails-plugin
 claude plugin install guardrails@alstaty            # add --scope project to enable it for the whole repo
 ```
 

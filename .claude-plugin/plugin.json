@@ -7,8 +7,8 @@
     "name": "Ahmad Alstaty",
     "email": "ahmad.alstaty@gmail.com"
   },
-  "homepage": "https://github.com/alstaty/guardrails-plugin",
-  "repository": "https://github.com/alstaty/guardrails-plugin",
+  "homepage": "https://github.com/ahmed-alstaty/guardrails-plugin",
+  "repository": "https://github.com/ahmed-alstaty/guardrails-plugin",
   "license": "MIT",
   "keywords": ["safety", "hooks", "guardrails", "claude-md", "lint", "secrets"]
 }
