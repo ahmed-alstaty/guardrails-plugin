@@ -202,21 +202,25 @@ expect_in() {  # expect_in <haystack> <needle> <label>
   case "$1" in *"$2"*) PASS=$((PASS+1)); echo "ok    $3";; *) FAIL=$((FAIL+1)); echo "FAIL  $3 (missing: $2)";; esac
 }
 CTX="$(printf '%s' "$REPORT" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["hookSpecificOutput"]["additionalContext"])')"
+SM="$(printf '%s' "$REPORT" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["systemMessage"])')"
 HEV="$(printf '%s' "$REPORT" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["hookSpecificOutput"]["hookEventName"])')"
 [ "$HEV" = "SessionStart" ] && { PASS=$((PASS+1)); echo "ok    hookEventName SessionStart"; } || { FAIL=$((FAIL+1)); echo "FAIL  hookEventName=$HEV"; }
 expect_in "$REPORT" '"systemMessage"' 'report has a systemMessage for the user'
 expect_in "$CTX" 'over 200 lines' 'warns on CLAUDE.md over 200 lines'
 expect_in "$CTX" '@import missing: docs/missing-guide.md' 'warns on broken @import'
-expect_in "$CTX" 'AGENTS.md present but NOT read' 'notes AGENTS.md ignored when CLAUDE.md exists'
-expect_in "$CTX" 'paths: src/api/**/*.ts' 'lists rules with paths frontmatter'
-expect_in "$CTX" 'packages/api/CLAUDE.md' 'lists nested CLAUDE.md'
+expect_in "$SM" 'AGENTS.md present but NOT read' 'notes AGENTS.md ignored when CLAUDE.md exists'
+expect_in "$SM" 'paths: src/api/**/*.ts' 'lists rules with paths frontmatter'
+expect_in "$SM" 'packages/api/CLAUDE.md' 'lists nested CLAUDE.md'
 expect_in "$CTX" 'reads as a summary' 'warns on skill without procedure'
 expect_in "$CTX" 'no frontmatter name' 'warns on skill without name'
 expect_in "$CTX" 'possible contradiction' 'detects always/never contradiction'
 expect_in "$CTX" 'emphasis words repeated' 'counts repeated emphasis'
 expect_in "$CTX" 'CLAUDE.local.md is not listed in .gitignore' 'warns CLAUDE.local.md not gitignored'
-expect_in "$CTX" '.claude/settings.json: not present' 'reports missing settings.json as SKIPPED'
-expect_in "$CTX" 'Summary:' 'has a summary line'
+expect_in "$SM" '.claude/settings.json: not present' 'reports missing settings.json as SKIPPED'
+expect_in "$SM" 'Summary:' 'full report (with summary line) goes to the terminal'
+expect_in "$CTX" 'Guardrails: ' 'Claude gets the counts'
+expect_in "$CTX" 'guardrails-status' 'Claude is told where the full report is'
+CTXLEN=${#CTX}; if [ "$CTXLEN" -lt 1200 ]; then PASS=$((PASS+1)); echo "ok    context stays short ($CTXLEN chars)"; else FAIL=$((FAIL+1)); echo "FAIL  context too long ($CTXLEN chars)"; fi
 ERRTXT="$(printf '{"cwd":%s,"hook_event_name":"SessionStart"}' "$(json_escape "$PROJ")" | python3 "$SCRIPTS/session_report.py" 2>&1 >/dev/null)"
 expect_in "$ERRTXT" 'GUARDRAILS session report' 'report is also printed to stderr'
 TXT="$(python3 "$SCRIPTS/session_report.py" --text --cwd "$PROJ" 2>/dev/null)"

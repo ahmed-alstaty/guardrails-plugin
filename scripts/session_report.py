@@ -208,25 +208,28 @@ def main(argv):
     if text_mode:
         print(report)
         return 0
-    # loud: stderr (debug log), systemMessage (user), additionalContext (Claude)
+    # Two channels, two costs:
+    #   systemMessage      -> shown to the person in the terminal, never enters the model (free)
+    #   additionalContext  -> handed to Claude, paid once per session start (kept to a few lines)
+    # The full table is always one command away: /guardrails:guardrails-status.
     log(report)
-    headline = "Guardrails: %d OK, %d WARN, %d SKIPPED. " % (counts["OK"], counts["WARN"], counts["SKIPPED"])
     warn_lines = [l.strip() for l in report.splitlines() if l.strip().startswith("WARN")]
+    summary = "Guardrails: %d OK, %d WARN, %d SKIPPED." % (counts["OK"], counts["WARN"], counts["SKIPPED"])
     if warn_lines:
-        headline += "Warnings: " + " | ".join(w[len("WARN"):].strip() for w in warn_lines[:6])
-        if len(warn_lines) > 6:
-            headline += " | ... and %d more (run /guardrails:guardrails-status)" % (len(warn_lines) - 6)
-    else:
-        headline += "Destructive commands and secrets edits are blocked by PreToolUse hooks."
+        summary += " Warnings: " + " | ".join(w[len("WARN"):].strip() for w in warn_lines[:4])
+        if len(warn_lines) > 4:
+            summary += " | and %d more" % (len(warn_lines) - 4)
+    context = (
+        "The guardrails plugin is active. It blocks destructive shell commands and edits to "
+        "secrets/protected paths with PreToolUse hooks; when it blocks something, tell the user "
+        "the reason it gave and do not try to work around it. Full report: /guardrails:guardrails-status.\n"
+        + summary
+    )
     out = {
-        "systemMessage": headline,
+        "systemMessage": report,
         "hookSpecificOutput": {
             "hookEventName": "SessionStart",
-            "additionalContext": (
-                "The guardrails plugin is active. It blocks destructive shell commands and edits to "
-                "secrets/protected paths with PreToolUse hooks; when it blocks something, tell the user "
-                "the reason it gave and do not try to work around it.\n\n" + report
-            ),
+            "additionalContext": context,
         },
     }
     sys.stdout.write(json.dumps(out))

@@ -1,7 +1,7 @@
 {
   "name": "guardrails",
   "displayName": "Guardrails",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Blocks destructive shell commands and secrets edits with PreToolUse hooks, reports what Claude Code loads at session start, and lints CLAUDE.md files against the documented rules.",
   "author": {
     "name": "Ahmad Alstaty",

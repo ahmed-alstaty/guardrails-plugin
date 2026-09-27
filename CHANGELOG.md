@@ -2,6 +2,13 @@
 
 All notable changes to this plugin are documented here. The format follows Keep a Changelog and the project uses semantic versioning.
 
+## [1.0.1] - 2026-09-28
+
+### Changed
+
+- Session start: the full `OK / WARN / SKIPPED` report is now shown in the terminal as the system message, and Claude receives only a short summary (counts, up to four warnings, where to find the full report). Cuts the per session context cost to about 150 to 300 tokens; the full table stays available with `/guardrails:guardrails-status`.
+- README: new "Cost" section.
+
 ## [1.0.0] - 2026-09-27
 
 ### Added

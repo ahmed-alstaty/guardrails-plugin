@@ -83,7 +83,7 @@ The session report shows which config files were loaded and warns about invalid 
 
 ## Session start report
 
-At startup, resume and `/clear` the plugin prints a checklist and passes it to Claude as `additionalContext`, so Claude knows the guardrails are on and will report a block instead of trying to route around it. Run `/guardrails:guardrails-status` to see it again at any time:
+At startup, resume and `/clear` the plugin prints this checklist in your terminal (as a system message) and hands Claude a short summary, so Claude knows the guardrails are on and will report a block instead of trying to route around it. Run `/guardrails:guardrails-status` to see the full report again at any time:
 
 ```text
 GUARDRAILS session report  (cwd: /work/app)
@@ -108,7 +108,7 @@ Hooks
   OK      plugin guardrails: PreToolUse, SessionStart (this plugin)
 
 Plugins
-  OK      guardrails@alstaty v1.0.0 (enabled in user settings)
+  OK      guardrails@alstaty v1.0.1 (enabled in user settings)
 
 Guardrails
   OK      config: .claude/guardrails.json (allow_commands 2, block_commands 1, ...)
@@ -117,6 +117,10 @@ Summary: 7 OK, 2 WARN, 2 SKIPPED. Run /guardrails:guardrails-lint to fix instruc
 ```
 
 Warnings cover: instruction files over 200 lines or over 4 MiB (Claude Code skips those), `@imports` that point at missing files, the same subject under "always" in one file and "never" in another, repeated `IMPORTANT`/`ALWAYS`/`NEVER`, `CLAUDE.local.md` not in `.gitignore`, skills without a `name` or `description`, `SKILL.md` files that are a summary with no steps and no pointer to steps, `AGENTS.md` present but not read (or present without a `CLAUDE.md`), invalid settings JSON, and plugins enabled in settings but not installed.
+
+## Cost
+
+Two channels, two costs. The full report is a system message: it is shown to you and never enters the model, so it is free. What Claude receives is a few lines (the OK / WARN / SKIPPED counts, up to four warnings, and the instruction not to route around a block), about 150 to 300 tokens once per session start, cached on every later turn. Each denied or asked tool call adds one sentence, about 40 tokens. Running `/guardrails:guardrails-status` or `/guardrails:guardrails-lint` puts that output into the conversation like any other tool result, so use them when you want them, not on every session.
 
 ## Skills
 
